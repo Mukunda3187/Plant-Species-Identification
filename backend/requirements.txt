@@ -4,3 +4,4 @@ pillow>=10.0
 numpy
 tensorflow==2.20.0
 keras>=3.13.2
+gunicorn==23.0.0
