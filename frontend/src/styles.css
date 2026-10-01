@@ -27,7 +27,9 @@ body {
   font-family: "Figtree", system-ui, sans-serif;
 }
 
-/* PAGE */
+/* =========================
+   PAGE
+========================= */
 
 .page {
   width: 100%;
@@ -44,7 +46,9 @@ body {
   overflow: hidden;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .top {
   height: 58px;
@@ -65,101 +69,56 @@ body {
 
   font-size: 21px;
   font-weight: 700;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
 }
 
 .brand svg {
   color: var(--green);
 }
 
-/* MAIN */
+/* =========================
+   HOME MAIN
+========================= */
 
 .layout {
   flex: 1;
+
   min-height: 0;
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
+  justify-content: center;
 
   padding: 0;
 
   overflow: hidden;
 }
 
-/* DESCRIPTION */
-
-.intro {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.lede {
-  max-width: 1100px;
-
-  margin: 30px 0 0;
-
-  color: var(--muted);
-
-  font-size: 18px;
-
-  line-height: 1.5;
-
-  text-align: center;
-}
-
-/* SPECIES CHIPS */
-
-.chips {
-  list-style: none;
-
-  padding: 0;
-  margin: 0;
-
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 12px;
-
-  max-width: 780px;
-}
-
-.chips li {
-  padding: 8px 18px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 30px;
-
-  background: var(--white);
-
-  color: #111;
-
-  font-size: 18px;
-
-  line-height: 1.25;
-}
-
-/* UPLOAD SECTION */
+/* =========================
+   UPLOAD SECTION
+========================= */
 
 .specimen {
   width: 600px;
   max-width: 100%;
 
-  margin: auto;
-
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-/* UPLOAD BOX */
+/* =========================
+   UPLOAD BOX
+========================= */
 
 .drop {
   width: 600px;
@@ -197,8 +156,6 @@ body {
   border-color: var(--green);
 }
 
-/* UPLOAD ICON */
-
 .drop svg {
   width: 42px;
   height: 42px;
@@ -208,12 +165,14 @@ body {
   color: var(--green);
 }
 
-/* UPLOAD TITLE */
+/* =========================
+   UPLOAD TITLE
+========================= */
 
 .drop-title {
   margin: 0 0 8px;
 
-  color: #111;
+  color: #111111;
 
   font-size: 24px;
 
@@ -222,7 +181,23 @@ body {
   line-height: 1.2;
 }
 
-/* SUBTITLE */
+/* =========================
+   DESCRIPTION
+========================= */
+
+.lede {
+  max-width: 500px;
+
+  margin: 0 0 10px;
+
+  color: var(--muted);
+
+  font-size: 16px;
+
+  line-height: 1.45;
+
+  text-align: center;
+}
 
 .muted {
   margin: 0;
@@ -238,7 +213,9 @@ body {
   font-size: 14px;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 .btn {
   min-width: 190px;
@@ -290,54 +267,99 @@ body {
   background: #edf8eb;
 }
 
-/* RESULT CARD */
+/* =========================
+   RESULT PAGE
+========================= */
 
-.card {
+.result-page {
+  flex: 1;
+
+  min-height: 0;
+
   width: 100%;
 
-  padding: 16px;
+  display: flex;
 
-  background: var(--white);
-
-  border: 1px solid var(--border);
-
-  border-radius: 18px;
+  align-items: center;
+  justify-content: center;
 
   overflow: hidden;
 }
 
-.photo {
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+  width: 100%;
+
+  height: 515px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  background: var(--white);
+
+  border: 2px solid var(--border);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   RESULT IMAGE - LEFT
+========================= */
+
+.result-image-section {
+  min-width: 0;
+
+  padding: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--border);
+}
+
+.result-photo {
   display: block;
 
   width: 100%;
+  height: 100%;
 
-  max-height: 42vh;
+  max-height: 455px;
 
-  object-fit: contain;
+  object-fit: cover;
 
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
-.actions {
+/* =========================
+   RESULT DETAILS - RIGHT
+========================= */
+
+.result-details {
+  min-width: 0;
+
+  padding: 40px 34px;
+
   display: flex;
 
+  flex-direction: column;
+
   justify-content: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
-
-  margin-top: 14px;
 }
 
-/* RESULT */
+.identified-text {
+  margin: 0 0 5px;
 
-.label {
-  padding-top: 14px;
+  color: #486875;
 
-  margin-top: 14px;
-
-  border-top: 1px solid var(--border);
+  font-size: 20px;
 }
 
 .label h2 {
@@ -345,56 +367,103 @@ body {
 
   color: var(--green);
 
-  font-size: 30px;
+  font-size: 48px;
+
+  line-height: 1.1;
 }
 
 .conf {
-  margin: 4px 0;
+  margin: 16px 0 25px;
 
-  font-weight: 600;
+  color: #111111;
+
+  font-size: 22px;
+
+  font-weight: 700;
 }
 
-.note {
-  margin: 10px 0;
+/* =========================
+   SCANNING
+========================= */
 
-  padding: 9px 12px;
+.scanning {
+  display: flex;
 
-  border-left: 3px solid #a46b0b;
+  flex-direction: column;
 
-  background: #f8f0dc;
+  align-items: flex-start;
 
-  color: #8a5a12;
-
-  border-radius: 0 8px 8px 0;
+  justify-content: center;
 }
 
-/* CONFIDENCE BARS */
+.scanning h2 {
+  margin: 18px 0 5px;
+
+  color: var(--green);
+
+  font-size: 30px;
+}
+
+.scanning p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 18px;
+}
+
+.loader {
+  width: 38px;
+  height: 38px;
+
+  border: 4px solid #d5e8d0;
+
+  border-top-color: var(--green);
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   CONFIDENCE BARS
+========================= */
 
 .bars {
   list-style: none;
 
   padding: 0;
-  margin: 14px 0;
+  margin: 0;
 
   display: grid;
 
-  gap: 8px;
+  gap: 18px;
 }
 
 .bars li {
   display: grid;
 
-  grid-template-columns: 95px 1fr 50px;
+  grid-template-columns: 130px 1fr 65px;
 
   align-items: center;
 
-  gap: 9px;
+  gap: 12px;
 
-  font-size: 13px;
+  font-size: 18px;
+}
+
+.bar-name {
+  color: #3f5661;
 }
 
 .track {
-  height: 8px;
+  height: 18px;
 
   background: #e3eee0;
 
@@ -427,8 +496,30 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* =========================
+   LOW CONFIDENCE
+========================= */
+
+.note {
+  margin: 12px 0;
+
+  padding: 9px 12px;
+
+  border-left: 3px solid #a46b0b;
+
+  background: #f8f0dc;
+
+  color: #8a5a12;
+
+  border-radius: 0 8px 8px 0;
+}
+
+/* =========================
+   ERROR
+========================= */
+
 .error {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
 
   color: #a1342a;
 
@@ -437,7 +528,9 @@ body {
   text-align: center;
 }
 
-/* FOCUS */
+/* =========================
+   FOCUS
+========================= */
 
 :focus-visible {
   outline: 3px solid var(--green-light);
@@ -445,38 +538,57 @@ body {
   outline-offset: 3px;
 }
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 1100px) {
   .page {
     padding: 0 50px;
   }
 
-  .lede {
-    font-size: 17px;
-  }
-
   .drop {
     width: 560px;
+
     height: 300px;
+
     min-height: 300px;
   }
 
-  .drop-title {
-    font-size: 22px;
+  .result-card {
+    height: 470px;
   }
 
-  .muted {
+  .result-image-section {
+    padding: 22px;
+  }
+
+  .result-details {
+    padding: 30px;
+  }
+
+  .label h2 {
+    font-size: 40px;
+  }
+
+  .conf {
+    font-size: 19px;
+  }
+
+  .bars li {
+    grid-template-columns: 105px 1fr 55px;
+
     font-size: 16px;
   }
 
-  .btn {
-    min-width: 175px;
-    font-size: 16px;
+  .track {
+    height: 15px;
   }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
   html,
@@ -503,29 +615,22 @@ body {
   }
 
   .layout {
-    gap: 20px;
+    min-height: calc(100vh - 58px);
 
     padding: 20px 0;
 
     overflow: visible;
   }
 
-  .lede {
-    margin-top: 20px;
-
-    font-size: 17px;
-  }
-
   .specimen {
     width: 100%;
-
-    margin: 30px auto;
   }
 
   .drop {
     width: 100%;
 
     height: 290px;
+
     min-height: 290px;
 
     padding: 25px 15px;
@@ -533,6 +638,12 @@ body {
 
   .drop-title {
     font-size: 21px;
+  }
+
+  .lede {
+    font-size: 15px;
+
+    max-width: 400px;
   }
 
   .muted {
@@ -546,12 +657,106 @@ body {
 
     font-size: 16px;
   }
+
+  /* MOBILE RESULT */
+
+  .result-page {
+    min-height: calc(100vh - 58px);
+
+    padding: 20px 0;
+
+    overflow: visible;
+  }
+
+  .result-card {
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 18px;
+  }
+
+  .result-image-section {
+    min-height: 280px;
+
+    padding: 16px;
+
+    border-right: none;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .result-photo {
+    width: 100%;
+
+    height: 280px;
+
+    max-height: 280px;
+  }
+
+  .result-details {
+    padding: 25px 20px;
+  }
+
+  .identified-text {
+    font-size: 17px;
+  }
+
+  .label h2 {
+    font-size: 34px;
+  }
+
+  .conf {
+    font-size: 18px;
+
+    margin-bottom: 20px;
+  }
+
+  .bars {
+    gap: 12px;
+  }
+
+  .bars li {
+    grid-template-columns: 85px 1fr 50px;
+
+    gap: 8px;
+
+    font-size: 14px;
+  }
+
+  .track {
+    height: 12px;
+  }
+
+  .scanning {
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px 0;
+  }
+
+  .scanning h2 {
+    font-size: 25px;
+  }
+
+  .scanning p {
+    font-size: 16px;
+  }
 }
 
-/* REDUCED MOTION */
+/* =========================
+   REDUCED MOTION
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+
+    animation: none !important;
   }
 }
