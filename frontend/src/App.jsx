@@ -108,16 +108,7 @@ export default function App() {
 
       {/* MAIN */}
       <main className="layout">
-        {/* LEFT SIDE */}
-        <section className="intro">
-          <p className="lede">
-            Upload a photo and a CNN will name the
-            plant from 14 species, with its top three guesses and how sure it
-            is.
-          </p>
-        </section>
-
-        {/* RIGHT SIDE */}
+      
         <section className="specimen" aria-live="polite">
           {!preview ? (
             <div
