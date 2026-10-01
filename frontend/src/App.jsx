@@ -71,7 +71,6 @@ export default function App() {
         <span className="brand">
           <LeafMark />Plant Species Identification Using CNN
         </span>
-        <span className="tag">CNN · MobileNetV2</span>
       </header>
 
       <main className="layout">
@@ -162,10 +161,6 @@ export default function App() {
           />
         </section>
       </main>
-
-      <footer className="foot">
-        Trained on 9,800 images · 85% validation accuracy · Predictions are a guide, not a botanist.
-      </footer>
     </div>
   );
 }
