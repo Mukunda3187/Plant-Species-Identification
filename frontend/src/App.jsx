@@ -47,17 +47,20 @@ export default function App() {
     setError("");
     setResult(null);
     setFile(f);
+
+    // Automatically scan the uploaded image
+    scanImage(f);
   }
 
-  async function identify() {
-    if (!file) return;
+  async function scanImage(selectedFile) {
+    if (!selectedFile) return;
 
     setLoading(true);
     setError("");
 
     try {
       const body = new FormData();
-      body.append("image", file);
+      body.append("image", selectedFile);
 
       const res = await fetch("/api/predict", {
         method: "POST",
@@ -87,6 +90,7 @@ export default function App() {
     setPreview(null);
     setResult(null);
     setError("");
+    setLoading(false);
 
     if (inputRef.current) {
       inputRef.current.value = "";
@@ -98,6 +102,7 @@ export default function App() {
 
   return (
     <div className="page">
+
       {/* HEADER */}
       <header className="top">
         <div className="brand">
@@ -108,30 +113,40 @@ export default function App() {
 
       {/* MAIN */}
       <main className="layout">
-      
+
         <section className="specimen" aria-live="polite">
+
           {!preview ? (
+
             <div
               className={"drop" + (dragging ? " over" : "")}
+
               onDragOver={(e) => {
                 e.preventDefault();
                 setDragging(true);
               }}
+
               onDragLeave={() => setDragging(false)}
+
               onDrop={(e) => {
                 e.preventDefault();
                 setDragging(false);
                 choose(e.dataTransfer.files[0]);
               }}
             >
+
               <LeafMark size={50} />
 
-              <p className="drop-title">Drop a plant photo here</p>
+              <p className="drop-title">
+                Drop a plant photo here
+              </p>
+
               <p className="lede">
-            Upload a photo and a CNN will name the
-            plant from 14 species, with its top three guesses and how sure it
-            is.
-          </p>
+                Upload a photo and a CNN will name the
+                plant from 14 species, with its top three
+                guesses and how sure it is.
+              </p>
+
               <p className="muted">
                 JPG or PNG, up to 10 MB
               </p>
@@ -142,40 +157,38 @@ export default function App() {
               >
                 Choose image
               </button>
+
             </div>
+
           ) : (
+
             <div className="card">
+
               <img
                 className="photo"
                 src={preview}
                 alt="Uploaded plant"
               />
 
-              {!result && (
-                <div className="actions">
-                  <button
-                    className="btn"
-                    onClick={identify}
-                    disabled={loading}
-                  >
-                    {loading ? "Identifying..." : "Identify plant"}
-                  </button>
-
-                  <button
-                    className="btn ghost"
-                    onClick={reset}
-                    disabled={loading}
-                  >
-                    Choose another
-                  </button>
+              {/* SCANNING */}
+              {loading && (
+                <div className="scanning">
+                  <div className="loader"></div>
+                  <p>Scanning image...</p>
                 </div>
               )}
 
-              {result && (
+              {/* RESULT */}
+              {result && !loading && (
                 <div className="label">
-                  <p className="muted small">Identified as</p>
 
-                  <h2>{best.label}</h2>
+                  <p className="muted small">
+                    Identified as
+                  </p>
+
+                  <h2>
+                    {best.label}
+                  </h2>
 
                   <p className="conf">
                     {best.confidence.toFixed(2)}% confidence
@@ -183,21 +196,28 @@ export default function App() {
 
                   {unsure && (
                     <p className="note">
-                      Low confidence. Try a closer, well-lit photo of the
-                      leaves or fruit.
+                      Low confidence. Try a closer, well-lit
+                      photo of the leaves or fruit.
                     </p>
                   )}
 
                   <ol className="bars">
+
                     {result.top3.map((p, i) => (
                       <li key={p.label}>
+
                         <span className="bar-name">
                           {p.label}
                         </span>
 
                         <span className="track">
+
                           <span
-                            className={"fill" + (i === 0 ? " first" : "")}
+                            className={
+                              "fill" +
+                              (i === 0 ? " first" : "")
+                            }
+
                             style={{
                               width: `${Math.max(
                                 p.confidence,
@@ -205,13 +225,16 @@ export default function App() {
                               )}%`,
                             }}
                           />
+
                         </span>
 
                         <span className="bar-val">
                           {p.confidence.toFixed(1)}%
                         </span>
+
                       </li>
                     ))}
+
                   </ol>
 
                   <button
@@ -220,17 +243,21 @@ export default function App() {
                   >
                     Identify another
                   </button>
+
                 </div>
               )}
+
             </div>
           )}
 
+          {/* ERROR */}
           {error && (
             <p className="error" role="alert">
               {error}
             </p>
           )}
 
+          {/* FILE INPUT */}
           <input
             ref={inputRef}
             type="file"
@@ -238,8 +265,11 @@ export default function App() {
             hidden
             onChange={(e) => choose(e.target.files[0])}
           />
+
         </section>
+
       </main>
+
     </div>
   );
 }
