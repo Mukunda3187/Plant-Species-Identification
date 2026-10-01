@@ -31,7 +31,13 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(() => {
+  return localStorage.getItem("theme") === "dark";
+});
+  useEffect(() => {
+  document.body.classList.toggle("dark-mode", darkMode);
+  localStorage.setItem("theme", darkMode ? "dark" : "light");
+}, [darkMode]);
   // 7-second graph display modal state
   const [graphModalOpen, setGraphModalOpen] = useState(false);
 
@@ -125,18 +131,24 @@ export default function App() {
 
       {/* HEADER */}
       <header className="top">
-        <button
-          className="brand"
-          onClick={() => {
-            setActiveTab("classifier");
-            goHome();
-          }}
-          type="button"
-          aria-label="Go to home page"
-        >
-          <LeafMark size={25} />
-          <span>Plant Species Identification Using CNN</span>
-        </button>
+        <div className="brand">
+  <button
+    className="theme-toggle"
+    onClick={() => setDarkMode((prev) => !prev)}
+    type="button"
+    aria-label="Toggle dark mode"
+  >
+    <LeafMark size={25} />
+  </button>
+
+  <button
+    className="brand-title"
+    onClick={goHome}
+    type="button"
+  >
+    Plant Species Identification Using CNN
+  </button>
+</div>
 
         {/* RIGHT HEADER LINE: SPECIES AND INFO */}
         <nav className="header-nav">
