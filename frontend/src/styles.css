@@ -27,6 +27,43 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* THEME TOGGLE */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--green);
+
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+.brand-title {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--green);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
 /* =========================
    PAGE
 ========================= */
@@ -1590,4 +1627,77 @@ h3,
   .species-middle-divider {
     display: none;
   }
+}
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+  --background: #0b0f0c;
+  --white: #151a16;
+  --green: #55c94a;
+  --green-light: #4caf3d;
+  --text: #f1f5f2;
+  --muted: #b7c8bd;
+  --border: #2b4230;
+
+  background: var(--background);
+  color: var(--text);
+}
+
+body.dark-mode .top {
+  border-bottom-color: #26352a;
+}
+
+body.dark-mode .drop,
+body.dark-mode .result-card,
+body.dark-mode .card {
+  background: #151a16;
+  border-color: #3f9140;
+}
+
+body.dark-mode .drop-title,
+body.dark-mode .label h2,
+body.dark-mode .scanning h2 {
+  color: #f1f5f2;
+}
+
+body.dark-mode .lede,
+body.dark-mode .muted,
+body.dark-mode .identified-text {
+  color: #b7c8bd;
+}
+
+body.dark-mode .result-image-section {
+  border-right-color: #2b4230;
+}
+
+body.dark-mode .conf {
+  color: #f1f5f2;
+}
+
+body.dark-mode .bar-name {
+  color: #c9d8ce;
+}
+
+body.dark-mode .track {
+  background: #28352b;
+}
+
+body.dark-mode .bar-val {
+  color: #aebeb4;
+}
+
+body.dark-mode .note {
+  background: #302817;
+  color: #e5c37a;
+}
+
+body.dark-mode .btn.ghost {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+body.dark-mode .btn.ghost:hover {
+  background: #1c321d;
 }
