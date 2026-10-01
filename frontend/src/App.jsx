@@ -115,12 +115,6 @@ export default function App() {
             plant from 14 species, with its top three guesses and how sure it
             is.
           </p>
-
-          <ul className="chips" aria-label="Supported plants">
-            {PLANTS.map((plant) => (
-              <li key={plant}>{plant}</li>
-            ))}
-          </ul>
         </section>
 
         {/* RIGHT SIDE */}
