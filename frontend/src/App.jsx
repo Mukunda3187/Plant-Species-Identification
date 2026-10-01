@@ -69,16 +69,15 @@ export default function App() {
     <div className="page">
       <header className="top">
         <span className="brand">
-          <LeafMark /> Plant Species Identification
+          <LeafMark />Plant Species Identification Using CNN
         </span>
         <span className="tag">CNN · MobileNetV2</span>
       </header>
 
       <main className="layout">
         <section className="intro">
-          <h1>Show it a leaf.<br />Get the plant.</h1>
           <p className="lede">
-            Upload a photo and a convolutional neural network will name the crop from
+            Upload a photo and a convolutional neural network will name the plant from
             14 species, with its top three guesses and how sure it is.
           </p>
           <ul className="chips" aria-label="Supported plants">
