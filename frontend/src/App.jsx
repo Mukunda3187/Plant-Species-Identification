@@ -1,12 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 
 const PLANTS = [
-  "Aloe vera", "Banana", "Coconut", "Corn", "Cucumber", "Ginger", "Guava",
-  "Mango", "Melon", "Orange", "Paddy", "Papaya", "Pineapple", "Watermelon",
+  "Aloe vera",
+  "Banana",
+  "Coconut",
+  "Corn",
+  "Cucumber",
+  "Ginger",
+  "Guava",
+  "Mango",
+  "Melon",
+  "Orange",
+  "Paddy",
+  "Papaya",
+  "Pineapple",
+  "Watermelon",
 ];
 
 export default function App() {
   const inputRef = useRef(null);
+
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [result, setResult] = useState(null);
@@ -16,17 +29,21 @@ export default function App() {
 
   useEffect(() => {
     if (!file) return;
+
     const url = URL.createObjectURL(file);
     setPreview(url);
+
     return () => URL.revokeObjectURL(url);
   }, [file]);
 
   function choose(f) {
     if (!f) return;
+
     if (!f.type.startsWith("image/")) {
       setError("Choose an image file (JPG or PNG).");
       return;
     }
+
     setError("");
     setResult(null);
     setFile(f);
@@ -34,14 +51,25 @@ export default function App() {
 
   async function identify() {
     if (!file) return;
+
     setLoading(true);
     setError("");
+
     try {
       const body = new FormData();
       body.append("image", file);
-      const res = await fetch("/api/predict", { method: "POST", body });
+
+      const res = await fetch("/api/predict", {
+        method: "POST",
+        body,
+      });
+
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Prediction failed.");
+
+      if (!res.ok) {
+        throw new Error(data.error || "Prediction failed.");
+      }
+
       setResult(data);
     } catch (e) {
       setError(
@@ -59,7 +87,10 @@ export default function App() {
     setPreview(null);
     setResult(null);
     setError("");
-    if (inputRef.current) inputRef.current.value = "";
+
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
   }
 
   const best = result?.prediction;
@@ -67,30 +98,40 @@ export default function App() {
 
   return (
     <div className="page">
+      {/* HEADER */}
       <header className="top">
-        <span className="brand">
-          <LeafMark />Plant Species Identification Using CNN
-        </span>
+        <div className="brand">
+          <LeafMark size={25} />
+          <span>Plant Species Identification Using CNN</span>
+        </div>
       </header>
 
+      {/* MAIN */}
       <main className="layout">
+        {/* LEFT SIDE */}
         <section className="intro">
           <p className="lede">
-            Upload a photo and a convolutional neural network will name the plant from
-            14 species, with its top three guesses and how sure it is.
+            Upload a photo and a convolutional neural network will name the
+            plant from 14 species, with its top three guesses and how sure it
+            is.
           </p>
+
           <ul className="chips" aria-label="Supported plants">
-            {PLANTS.map((p) => (
-              <li key={p}>{p}</li>
+            {PLANTS.map((plant) => (
+              <li key={plant}>{plant}</li>
             ))}
           </ul>
         </section>
 
+        {/* RIGHT SIDE */}
         <section className="specimen" aria-live="polite">
           {!preview ? (
             <div
               className={"drop" + (dragging ? " over" : "")}
-              onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setDragging(true);
+              }}
               onDragLeave={() => setDragging(false)}
               onDrop={(e) => {
                 e.preventDefault();
@@ -98,23 +139,44 @@ export default function App() {
                 choose(e.dataTransfer.files[0]);
               }}
             >
-              <LeafMark size={44} />
+              <LeafMark size={50} />
+
               <p className="drop-title">Drop a plant photo here</p>
-              <p className="muted">JPG or PNG, up to 10 MB</p>
-              <button className="btn" onClick={() => inputRef.current?.click()}>
+
+              <p className="muted">
+                JPG or PNG, up to 10 MB
+              </p>
+
+              <button
+                className="btn"
+                onClick={() => inputRef.current?.click()}
+              >
                 Choose image
               </button>
             </div>
           ) : (
             <div className="card">
-              <img className="photo" src={preview} alt="Uploaded plant" />
+              <img
+                className="photo"
+                src={preview}
+                alt="Uploaded plant"
+              />
 
               {!result && (
                 <div className="actions">
-                  <button className="btn" onClick={identify} disabled={loading}>
-                    {loading ? "Identifying…" : "Identify plant"}
+                  <button
+                    className="btn"
+                    onClick={identify}
+                    disabled={loading}
+                  >
+                    {loading ? "Identifying..." : "Identify plant"}
                   </button>
-                  <button className="btn ghost" onClick={reset} disabled={loading}>
+
+                  <button
+                    className="btn ghost"
+                    onClick={reset}
+                    disabled={loading}
+                  >
                     Choose another
                   </button>
                 </div>
@@ -123,34 +185,62 @@ export default function App() {
               {result && (
                 <div className="label">
                   <p className="muted small">Identified as</p>
+
                   <h2>{best.label}</h2>
-                  <p className="conf">{best.confidence.toFixed(2)}% confidence</p>
+
+                  <p className="conf">
+                    {best.confidence.toFixed(2)}% confidence
+                  </p>
+
                   {unsure && (
                     <p className="note">
-                      Low confidence. Try a closer, well-lit photo of the leaves or fruit.
+                      Low confidence. Try a closer, well-lit photo of the
+                      leaves or fruit.
                     </p>
                   )}
+
                   <ol className="bars">
                     {result.top3.map((p, i) => (
                       <li key={p.label}>
-                        <span className="bar-name">{p.label}</span>
+                        <span className="bar-name">
+                          {p.label}
+                        </span>
+
                         <span className="track">
                           <span
                             className={"fill" + (i === 0 ? " first" : "")}
-                            style={{ width: `${Math.max(p.confidence, 1)}%` }}
+                            style={{
+                              width: `${Math.max(
+                                p.confidence,
+                                1
+                              )}%`,
+                            }}
                           />
                         </span>
-                        <span className="bar-val">{p.confidence.toFixed(1)}%</span>
+
+                        <span className="bar-val">
+                          {p.confidence.toFixed(1)}%
+                        </span>
                       </li>
                     ))}
                   </ol>
-                  <button className="btn ghost" onClick={reset}>Identify another</button>
+
+                  <button
+                    className="btn ghost"
+                    onClick={reset}
+                  >
+                    Identify another
+                  </button>
                 </div>
               )}
             </div>
           )}
 
-          {error && <p className="error" role="alert">{error}</p>}
+          {error && (
+            <p className="error" role="alert">
+              {error}
+            </p>
+          )}
 
           <input
             ref={inputRef}
@@ -167,8 +257,17 @@ export default function App() {
 
 function LeafMark({ size = 22 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M20 4C10 4 4 9 4 15c0 2.2 1.2 4 3 5 .3-5 3-9 8-11-4 3-6 6-6.5 11.3C15.5 19.5 20 14 20 4Z" fill="currentColor" />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M20 4C10 4 4 9 4 15c0 2.2 1.2 4 3 5 .3-5 3-9 8-11-4 3-6 6-6.5 11.3C15.5 19.5 20 14 20 4Z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
