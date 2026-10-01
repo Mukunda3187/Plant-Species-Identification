@@ -1,0 +1,74 @@
+:root {
+  --paper: #eef3e8;
+  --panel: #fbfdf8;
+  --ink: #15261c;
+  --muted: #5c6f62;
+  --chlorophyll: #1f5a3d;
+  --leaf: #6aa84f;
+  --line: #cfdcc6;
+  --warn: #8a5a12;
+  --err: #a1342a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Figtree", system-ui, sans-serif;
+  line-height: 1.55;
+}
+h1, h2 { font-family: "Bricolage Grotesque", "Figtree", sans-serif; margin: 0; }
+button { font: inherit; }
+:focus-visible { outline: 3px solid var(--leaf); outline-offset: 2px; }
+
+.page { min-height: 100vh; max-width: 1120px; margin: 0 auto; padding: 24px 24px 32px; display: flex; flex-direction: column; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 8px; color: var(--chlorophyll); font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; }
+.tag { font-size: 0.85rem; color: var(--muted); }
+
+.layout { flex: 1; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding: 48px 0; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1; font-weight: 800; letter-spacing: -0.03em; color: var(--chlorophyll); }
+.lede { max-width: 46ch; font-size: 1.1rem; color: var(--muted); margin: 20px 0 24px; }
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; max-width: 52ch; }
+.chips li { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.88rem; background: var(--panel); }
+
+.specimen { min-width: 0; }
+.drop, .card { background: var(--panel); border: 1.5px solid var(--line); border-radius: 18px; }
+.drop { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 56px 24px; border-style: dashed; color: var(--chlorophyll); transition: background .15s, border-color .15s; }
+.drop.over { background: #f0f8e8; border-color: var(--leaf); }
+.drop-title { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.35rem; margin: 10px 0 0; color: var(--ink); }
+.drop .btn { margin-top: 18px; }
+.muted { color: var(--muted); margin: 0; }
+.small { font-size: 0.85rem; }
+
+.card { padding: 14px; }
+.photo { display: block; width: 100%; max-height: 340px; object-fit: cover; border-radius: 12px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+.btn { background: var(--chlorophyll); color: #fff; border: 1.5px solid var(--chlorophyll); padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: background .15s; }
+.btn:hover:not(:disabled) { background: #174630; }
+.btn:disabled { opacity: .6; cursor: progress; }
+.btn.ghost { background: transparent; color: var(--chlorophyll); }
+.btn.ghost:hover:not(:disabled) { background: #e3eddb; }
+
+.label { padding: 18px 6px 6px; border-top: 1px solid var(--line); margin-top: 14px; }
+.label h2 { font-size: 2.2rem; letter-spacing: -0.02em; color: var(--chlorophyll); }
+.conf { margin: 2px 0 0; font-weight: 600; }
+.note { margin: 12px 0 0; padding: 8px 12px; border-left: 3px solid var(--warn); background: #f6efdc; color: var(--warn); font-size: 0.92rem; border-radius: 0 8px 8px 0; }
+
+.bars { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 10px; }
+.bars li { display: grid; grid-template-columns: 96px 1fr 52px; align-items: center; gap: 10px; font-size: 0.92rem; }
+.track { height: 10px; background: #e2ebda; border-radius: 6px; overflow: hidden; }
+.fill { display: block; height: 100%; background: #a9c99a; border-radius: 6px; transition: width .6s cubic-bezier(.2,.7,.2,1); }
+.fill.first { background: var(--chlorophyll); }
+.bar-val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+.error { margin: 14px 0 0; color: var(--err); font-weight: 500; }
+.foot { padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 36px; padding: 32px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
