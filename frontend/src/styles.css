@@ -24,7 +24,7 @@ body,
 body {
   background: var(--background);
   color: var(--text);
-  font-family: "Figtree", system-ui, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* =========================
@@ -61,6 +61,14 @@ body {
   border-bottom: 1px solid #d8e5d4;
 }
 
+h1,
+h2,
+h3,
+.drop-title {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+
 .brand {
   display: flex;
   align-items: center;
@@ -68,7 +76,8 @@ body {
 
   color: var(--green);
 
-  font-size: 21px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
   font-weight: 700;
 
   background: none;
@@ -226,7 +235,9 @@ body {
 
   color: #111111;
 
-  font-size: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 27px;
 
   font-weight: 700;
 
@@ -481,7 +492,11 @@ body {
 
   color: var(--green);
 
+  font-family: Georgia, "Times New Roman", serif;
+
   font-size: 48px;
+
+  font-weight: 700;
 
   line-height: 1.1;
 }
