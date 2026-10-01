@@ -147,7 +147,7 @@ export default function App() {
               setActiveTab(activeTab === "info" ? "classifier" : "info");
             }}
           >
-            <span>Species and Info</span>
+            <span>Species & Info</span>
             <span className="nav-line" />
           </button>
         </nav>
@@ -179,17 +179,14 @@ export default function App() {
                 <div className="acc-stat-item">
                   <span className="stat-val">85.6%</span>
                   <span className="stat-title">Validation Accuracy</span>
-                  <span className="stat-desc">Peak test epoch evaluation</span>
                 </div>
                 <div className="acc-stat-item">
                   <span className="stat-val">85.2%</span>
                   <span className="stat-title">Training Accuracy</span>
-                  <span className="stat-desc">5 training epochs</span>
                 </div>
                 <div className="acc-stat-item">
                   <span className="stat-val">14</span>
                   <span className="stat-title">Target Species</span>
-                  <span className="stat-desc">Botanical leaf classification</span>
                 </div>
               </div>
             </section>
@@ -197,7 +194,7 @@ export default function App() {
             {/* 2. 14 SPECIES NAMES: 7 ON LEFT, LIGHT LINE IN MIDDLE, 7 ON RIGHT */}
             <section className="species-section-box">
               <div className="species-box-header">
-                <h2 className="species-box-title">14 Supported Plant Species</h2>
+                <h2 className="species-box-title">14 Plant Species</h2>
               </div>
 
               <div className="species-columns-split">
