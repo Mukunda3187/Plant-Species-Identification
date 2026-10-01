@@ -111,7 +111,7 @@ export default function App() {
         {/* LEFT SIDE */}
         <section className="intro">
           <p className="lede">
-            Upload a photo and a convolutional neural network will name the
+            Upload a photo and a CNN will name the
             plant from 14 species, with its top three guesses and how sure it
             is.
           </p>
@@ -136,7 +136,11 @@ export default function App() {
               <LeafMark size={50} />
 
               <p className="drop-title">Drop a plant photo here</p>
-
+              <p className="lede">
+            Upload a photo and a CNN will name the
+            plant from 14 species, with its top three guesses and how sure it
+            is.
+          </p>
               <p className="muted">
                 JPG or PNG, up to 10 MB
               </p>
