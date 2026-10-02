@@ -79,6 +79,18 @@ export default function App() {
     if (timerRef.current) clearTimeout(timerRef.current);
   }
 
+  async function chooseTestImage(number) {
+    try {
+      const response = await fetch(`/${number}.jpg`);
+      if (!response.ok) throw new Error(`Test image ${number}.jpg not found.`);
+      const blob = await response.blob();
+      const testFile = new File([blob], `${number}.jpg`, { type: 'image/jpeg' });
+      await choose(testFile);
+    } catch (e) {
+      setError(e.message || 'Unable to load test image.');
+    }
+  }
+
   async function choose(f) {
     if (!f) return;
 
@@ -468,6 +480,27 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* ============================================================ */}
+      {/* 4. TEST CASES FOOTER                                           */}
+      {/* ============================================================ */}
+      <footer className="test-cases-footer">
+        <span className="test-cases-title">Test Cases:</span>
+        <div className="test-case-buttons">
+          {[1, 2, 3, 4, 5].map((number) => (
+            <button
+              key={number}
+              type="button"
+              className="test-case-btn"
+              onClick={() => chooseTestImage(number)}
+              disabled={loading}
+              aria-label={`Test case ${number}`}
+            >
+              {number}
+            </button>
+          ))}
+        </div>
+      </footer>
 
       <input
         ref={inputRef}
