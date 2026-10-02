@@ -20,6 +20,23 @@ const SPECIES_COL_2 = [
   "Watermelon",
 ];
 
+const DATASET_COUNTS = {
+  "Aloe vera": 700,
+  "Banana": 700,
+  "Coconut": 700,
+  "Corn": 700,
+  "Cucumber": 700,
+  "Ginger": 700,
+  "Guava": 700,
+  "Mango": 700,
+  "Melon": 700,
+  "Orange": 700,
+  "Paddy": 700,
+  "Papaya": 700,
+  "Pineapple": 700,
+  "Watermelon": 700,
+};
+
 export default function App() {
   const inputRef = useRef(null);
   const timerRef = useRef(null);
@@ -212,14 +229,21 @@ export default function App() {
               <div className="species-columns-split">
                 {/* COLUMN 1 - 7 SPECIES */}
                 <div className="species-col">
-                  <ol className="species-list">
-                    {SPECIES_COL_1.map((name, i) => (
-                      <li key={name} className="species-item">
-                        <span className="species-num">{i + 1}.</span>
-                        <span className="species-common">{name}</span>
-                      </li>
-                    ))}
-                  </ol>
+                 <ol className="species-list">
+  {SPECIES_COL_1.map((name, i) => (
+    <li key={name} className="species-item">
+      <span className="species-num">{i + 1}.</span>
+
+      <div className="species-info">
+        <span className="species-common">{name}</span>
+
+        <span className="species-count">
+          {DATASET_COUNTS[name]} images
+        </span>
+      </div>
+    </li>
+  ))}
+</ol>
                 </div>
 
                 {/* LIGHT MIDDLE LINE */}
@@ -227,14 +251,21 @@ export default function App() {
 
                 {/* COLUMN 2 - ANOTHER 7 SPECIES */}
                 <div className="species-col">
-                  <ol className="species-list" start={8}>
-                    {SPECIES_COL_2.map((name, i) => (
-                      <li key={name} className="species-item">
-                        <span className="species-num">{i + 8}.</span>
-                        <span className="species-common">{name}</span>
-                      </li>
-                    ))}
-                  </ol>
+                 <ol className="species-list" start={8}>
+  {SPECIES_COL_2.map((name, i) => (
+    <li key={name} className="species-item">
+      <span className="species-num">{i + 8}.</span>
+
+      <div className="species-info">
+        <span className="species-common">{name}</span>
+
+        <span className="species-count">
+          {DATASET_COUNTS[name]} images
+        </span>
+      </div>
+    </li>
+  ))}
+</ol>
                 </div>
               </div>
             </section>
