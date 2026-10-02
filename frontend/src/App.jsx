@@ -153,7 +153,6 @@ export default function App() {
   }
 
   const best = result?.prediction;
-  const unsure = best && best.confidence < 60;
 
   return (
     <div className="page">
@@ -400,12 +399,6 @@ export default function App() {
                       {best.confidence.toFixed(2)}% confidence
                     </p>
 
-                    {unsure && (
-                      <p className="note">
-                        Low confidence. Try a closer, well-lit
-                        photo of the leaves or fruit.
-                      </p>
-                    )}
 
                     <ol className="bars">
                       {result.top3.map((p, i) => (
