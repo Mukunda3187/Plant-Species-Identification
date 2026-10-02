@@ -146,7 +146,7 @@ export default function App() {
     setLoading(false);
     setError("");
     setDragging(false);
-
+    setActiveTab("classifier");
     if (inputRef.current) {
       inputRef.current.value = "";
     }
