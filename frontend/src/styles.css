@@ -1792,3 +1792,12 @@ body.dark-mode .stat-val {
 body.dark-mode .stat-title {
   color: #dce5df;
 }
+
+body.dark-mode .graph-section-box {
+  background: #151b17;
+}
+
+body.dark-mode .graph-preview-container {
+  background: #1d261f;
+  border-color: #34463a;
+}
