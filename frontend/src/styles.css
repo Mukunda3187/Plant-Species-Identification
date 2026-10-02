@@ -1722,3 +1722,32 @@ body.dark-mode .btn.ghost:hover {
 body.dark-mode .test-cases-title { color: #b4c1b9; }
 body.dark-mode .test-case-btn { border-color: #6f7f75; color: #d8e0db; }
 body.dark-mode .test-case-btn:hover:not(:disabled) { background: #27332c; }
+
+/* DARK MODE - FIX INFO PAGE TITLES */
+
+body.dark-mode .info-title,
+body.dark-mode .accuracy-card-title,
+body.dark-mode .species-box-title,
+body.dark-mode .graph-box-title {
+  color: #f2f5f2;
+}
+
+body.dark-mode .stat-title,
+body.dark-mode .acc-label {
+  color: #f2f5f2;
+}
+
+body.dark-mode .species-common {
+  color: #111111;
+}
+body.dark-mode .graph-preview-container {
+  background: #f7faf7;
+}
+
+body.dark-mode .graph-modal-title {
+  color: #f2f5f2;
+}
+
+body.dark-mode .modal-close-btn {
+  color: #f2f5f2;
+}
