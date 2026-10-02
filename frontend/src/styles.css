@@ -1801,3 +1801,30 @@ body.dark-mode .graph-preview-container {
   background: #1d261f;
   border-color: #34463a;
 }
+
+body.dark-mode .graph-modal-backdrop {
+  background: rgba(0, 0, 0, 0.78);
+}
+
+body.dark-mode .graph-modal-card {
+  background: #151b17;
+  border: 1px solid #34463a;
+}
+
+body.dark-mode .graph-modal-top {
+  background: #151b17;
+  border-bottom: 1px solid #34463a;
+}
+
+body.dark-mode .graph-modal-title {
+  color: #f2f5f2;
+}
+
+body.dark-mode .modal-close-btn {
+  color: #f2f5f2;
+  background: #202a23;
+}
+
+body.dark-mode .graph-modal-image-wrapper {
+  background: #151b17;
+}
