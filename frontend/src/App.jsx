@@ -484,7 +484,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* 4. TEST CASES FOOTER                                           */}
       {/* ============================================================ */}
-      {!result && !preview && (
+{!result && !preview && activeTab === "classifier" && (
   <footer className="test-cases-footer">
     <span className="test-cases-title">Test Cases:</span>
 
