@@ -484,23 +484,26 @@ export default function App() {
       {/* ============================================================ */}
       {/* 4. TEST CASES FOOTER                                           */}
       {/* ============================================================ */}
-      <footer className="test-cases-footer">
-        <span className="test-cases-title">Test Cases:</span>
-        <div className="test-case-buttons">
-          {[1, 2, 3, 4, 5].map((number) => (
-            <button
-              key={number}
-              type="button"
-              className="test-case-btn"
-              onClick={() => chooseTestImage(number)}
-              disabled={loading}
-              aria-label={`Test case ${number}`}
-            >
-              {number}
-            </button>
-          ))}
-        </div>
-      </footer>
+      {!result && !preview && (
+  <footer className="test-cases-footer">
+    <span className="test-cases-title">Test Cases:</span>
+
+    <div className="test-case-buttons">
+      {[1, 2, 3, 4, 5].map((number) => (
+        <button
+          key={number}
+          type="button"
+          className="test-case-btn"
+          onClick={() => chooseTestImage(number)}
+          disabled={loading}
+          aria-label={`Test case ${number}`}
+        >
+          {number}
+        </button>
+      ))}
+    </div>
+  </footer>
+)}
 
       <input
         ref={inputRef}
