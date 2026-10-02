@@ -524,6 +524,18 @@ h3,
   font-size: 20px;
 }
 
+.species-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.species-count {
+  color: #6b7d73;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
 .label h2 {
   margin: 0;
 
