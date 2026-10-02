@@ -4,6 +4,8 @@ React (Vite) frontend + Flask backend serving your MobileNetV2 model (`plant_spe
 Recognises 14 plants: aloe vera, banana, coconut, corn, cucumber, ginger, guava, mango, melon,
 orange, paddy, papaya, pineapple, watermelon.
 
+link:- https://plant-species-identification-suw0.onrender.com
+
 ## Requirements
 - Python 3.10–3.13
 - Node.js 18+
