@@ -1734,7 +1734,7 @@ body.dark-mode .graph-box-title {
 
 body.dark-mode .stat-title,
 body.dark-mode .acc-label {
-  color: #f2f5f2;
+  color: #111111;
 }
 
 body.dark-mode .species-common {
@@ -1745,9 +1745,50 @@ body.dark-mode .graph-preview-container {
 }
 
 body.dark-mode .graph-modal-title {
-  color: #f2f5f2;
+  color: #111111;
 }
 
 body.dark-mode .modal-close-btn {
+  color: #111111;
+}
+body.dark-mode .graph-box-title {
   color: #f2f5f2;
+}
+
+/* DARK MODE - SPECIES & INFO CARDS */
+
+body.dark-mode .accuracy-card-box,
+body.dark-mode .species-section-box,
+body.dark-mode .graph-section-box {
+  background: #151b17;
+}
+
+body.dark-mode .acc-stat-item {
+  background: #202821;
+  border: 1px solid #34463a;
+}
+
+body.dark-mode .species-item {
+  background: #202821;
+  border: 1px solid #34463a;
+}
+
+body.dark-mode .species-common {
+  color: #f2f5f2;
+}
+
+body.dark-mode .species-count {
+  color: #aab8ae;
+}
+
+body.dark-mode .species-num {
+  color: #4dcc4d;
+}
+
+body.dark-mode .stat-val {
+  color: #4dcc4d;
+}
+
+body.dark-mode .stat-title {
+  color: #dce5df;
 }
