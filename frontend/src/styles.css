@@ -1828,3 +1828,42 @@ body.dark-mode .modal-close-btn {
 body.dark-mode .graph-modal-image-wrapper {
   background: #151b17;
 }
+
+/* MOBILE - SHOW TEST CASES FOOTER */
+@media (max-width: 768px) {
+  .page {
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .test-cases-footer {
+    display: flex !important;
+    width: 100%;
+    min-height: 70px;
+    padding: 16px 12px 24px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 20;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .test-cases-title {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .test-case-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .test-case-btn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+}
