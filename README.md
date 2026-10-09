@@ -5,6 +5,7 @@ Recognises 14 plants: aloe vera, banana, coconut, corn, cucumber, ginger, guava,
 orange, paddy, papaya, pineapple, watermelon.
 
 link:- https://plant-species-identification-suw0.onrender.com
+colab link :- https://colab.research.google.com/drive/1C6uil2_RrzzTN9F2Lnh9UC82pd6u6sHf?usp=sharing
 
 ## Requirements
 - Python 3.10–3.13
